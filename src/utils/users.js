@@ -40,7 +40,7 @@ const removeUser = (id) => {
     })
 
     if(index !== -1){
-        return users.splice(index, 1)[0]
+        return users.splice(index, 1)[0]  //return the remove user
     }
 }
 
@@ -49,7 +49,7 @@ const getUser = (id) => {
     return users.find((user) => user.id === id)
 }
 
-// getUsersInRoom
+// getUsersInRoom (for sidebar)
 const getUsersInRoom = (room) => {
     room = room.trim().toLowerCase()
     return users.filter((user) => user.room === room)

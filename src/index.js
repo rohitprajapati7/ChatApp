@@ -45,13 +45,13 @@ io.on('connection', (socket)=>{
         socket.join(user.room);
 
         socket.emit('message', generateMessage('Admin','Welcome to the chatApp'));
-        socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} joined!`));
-        io.to(user.room).emit('roomData', {
+        socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} joined!`)); //to specific chat room
+        io.to(user.room).emit('roomData', {    //to everybody to specific room
         room: user.room,
         users: getUsersInRoom(user.room)
         })
 
-        callback()
+        callback()    //know the cliet they are join(without passing argument)
 
     //socket.emmit, io.emit, socket.broadcast.emit
     //io.to.emit => it emit a event to everybody with specific room
