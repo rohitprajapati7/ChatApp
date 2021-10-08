@@ -119,7 +119,7 @@ $messageForm.addEventListener('submit', (e)=>{
         socket.emit("sendLocation", {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
-        }, () =>{
+        }, () =>{  //acknowledge
             $sendLocationButton.removeAttribute('disabled')
             console.log('Location shared!')
         });
